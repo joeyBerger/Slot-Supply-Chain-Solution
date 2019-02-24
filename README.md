@@ -14,13 +14,20 @@ Each of the 4 parties involved (game studio, slot manufacturer, regulatory body,
 
 
 ## Project Specifics
-* The Rinkeby Contract Address is [0xd1f3054F4bd3C9c862cd663F6f5026b6f706d71C.](https://rinkeby.etherscan.io/address/0xd1f3054F4bd3C9c862cd663F6f5026b6f706d71C)
+* The Rinkeby Contract Address is [0x762ae90b028909c2bcb6ecc1d524e506116cb9e5.](https://rinkeby.etherscan.io/address/0x762ae90b028909c2bcb6ecc1d524e506116cb9e5)
+* Sample Transaction ID [0xe0730cd7c9dbc9dc8e29b6b4afeefd9f76ae65dc6d35ee20e1e47317201152fc](https://rinkeby.etherscan.io/tx/0xe0730cd7c9dbc9dc8e29b6b4afeefd9f76ae65dc6d35ee20e1e47317201152fc)  
+* To run tests via Ganache, enter the command `ganache-cli -m "spirit supply whale amount human item harsh scare congress discover talent hamster"`
+* Though there are buttons to add roles, only the contract owner can add those roles
+
+## Library 
+* The Role.sol library was used to add, remove and maitain integrity of assigned roles. Currently, the front-end is ignoring the role calls authentication for ease of use for users of smart contract for testing purposes.
 
 ## Prerequisites
 Access to an operating system capable of internet and browser access.
 
 ## Installing
 * Unzip project or clone from [Github](https://github.com/joeyBerger/SlotSupplyChainSolution).
+* Install npm dependencies `npm install`
 * Navigate to folder and in a terminal enter `npm run dev` to start local server.
 
 #### Running the web application

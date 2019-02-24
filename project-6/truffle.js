@@ -7,8 +7,8 @@ var mnemonic = 'spirit supply whale amount human item harsh scare congress disco
 
 module.exports = {
   networks: { 
-    ganache: {
-      host: '127.0.0.1',
+    development: {
+      host: "localhost",
       port: 8545,
       network_id: "*"
     }, 
@@ -22,3 +22,12 @@ module.exports = {
     }
   }
 };
+// module.exports = {
+//   networks: {
+//       development: {
+//           host: "localhost",
+//           port: 8545,
+//           network_id: "*" // Match any network id
+//       }
+//   }
+// };

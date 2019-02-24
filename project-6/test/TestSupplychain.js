@@ -8,10 +8,10 @@ contract('SupplyChain', function(accounts) {
     var upc = 1
     const ownerID = accounts[0]
     const originSlotTitleID = accounts[1]
-    const originGameStudioID = "John Doe"
-    const originGameStudioInformation = "Yarray Valley"
-    const originGameStudioAddress = "-38.239770"
-    const originGameStudioEmailContact = "144.341490"
+    const originGameStudioID = "CTS"
+    const originGameStudioInformation = "Third Party"
+    const originGameStudioAddress = "1234 Main"
+    const originGameStudioEmailContact = "email@email.com"
     var productID = sku + upc
     const productNotes = "Best beans for Espresso"
     const productPrice = web3.toWei(1, "ether")
@@ -19,7 +19,6 @@ contract('SupplyChain', function(accounts) {
     const slotManufacturerID = accounts[2]
     const regulatoryID = accounts[3]
     const casinoID = accounts[4]
-    const emptyAddress = '0x00000000000000000000000000000000000000'
 
     console.log("ganache-cli accounts used here...")
     console.log("Contract Owner: accounts[0] ", accounts[0])
@@ -73,12 +72,13 @@ contract('SupplyChain', function(accounts) {
         assert.equal(resultBufferOne[0], sku, 'Error: Invalid item SKU')
         assert.equal(resultBufferOne[1], upc, 'Error: Invalid item UPC')
         assert.equal(resultBufferOne[2], originSlotTitleID, 'Error: Missing or Invalid ownerID')
+        assert.notEqual(resultBufferOne[2], casinoID, 'Error: Missing or Invalid ownerID')
         assert.equal(resultBufferOne[3], originSlotTitleID, 'Error: Missing or Invalid originSlotTitleID')
         assert.equal(resultBufferOne[4], originGameStudioID, 'Error: Missing or Invalid originGameStudioID')
         assert.equal(resultBufferOne[5], originGameStudioInformation, 'Error: Missing or Invalid originGameStudioInformation')
         assert.equal(resultBufferOne[6], originGameStudioAddress, 'Error: Missing or Invalid originGameStudioAddress')
         assert.equal(resultBufferOne[7], originGameStudioEmailContact, 'Error: Missing or Invalid originGameStudioEmailContact')
-        assert.equal(resultBufferTwo[5], 0, 'Error: Invalid item State')
+        assert.equal(resultBufferTwo[5], stateMapping["MathReady"], 'Error: Invalid item State')
         assert.equal(eventEmitted, true, 'Invalid event emitted')        
     })    
 
@@ -106,6 +106,7 @@ contract('SupplyChain', function(accounts) {
         assert.equal(resultBufferOne[0], sku, 'Error: Invalid item SKU')
         assert.equal(resultBufferOne[1], upc, 'Error: Invalid item UPC')
         assert.equal(resultBufferOne[2], originSlotTitleID, 'Error: Missing or Invalid ownerID')
+        assert.notEqual(resultBufferOne[2], regulatoryID, 'Error: Missing or Invalid ownerID')
         assert.equal(resultBufferOne[3], originSlotTitleID, 'Error: Missing or Invalid originSlotTitleID')
         assert.equal(resultBufferOne[4], originGameStudioID, 'Error: Missing or Invalid originGameStudioID')
         assert.equal(resultBufferOne[5], originGameStudioInformation, 'Error: Missing or Invalid originGameStudioInformation')
@@ -139,6 +140,7 @@ contract('SupplyChain', function(accounts) {
         assert.equal(resultBufferOne[0], sku, 'Error: Invalid item SKU')
         assert.equal(resultBufferOne[1], upc, 'Error: Invalid item UPC')
         assert.equal(resultBufferOne[2], originSlotTitleID, 'Error: Missing or Invalid ownerID')
+        assert.notEqual(resultBufferOne[2], slotManufacturerID, 'Error: Missing or Invalid ownerID')
         assert.equal(resultBufferOne[3], originSlotTitleID, 'Error: Missing or Invalid originSlotTitleID')
         assert.equal(resultBufferOne[4], originGameStudioID, 'Error: Missing or Invalid originGameStudioID')
         assert.equal(resultBufferOne[5], originGameStudioInformation, 'Error: Missing or Invalid originGameStudioInformation')
@@ -172,6 +174,7 @@ contract('SupplyChain', function(accounts) {
         assert.equal(resultBufferOne[0], sku, 'Error: Invalid item SKU')
         assert.equal(resultBufferOne[1], upc, 'Error: Invalid item UPC')
         assert.equal(resultBufferOne[2], originSlotTitleID, 'Error: Missing or Invalid ownerID')
+        assert.notEqual(resultBufferOne[2], regulatoryID, 'Error: Missing or Invalid ownerID')
         assert.equal(resultBufferOne[3], originSlotTitleID, 'Error: Missing or Invalid originSlotTitleID')
         assert.equal(resultBufferOne[4], originGameStudioID, 'Error: Missing or Invalid originGameStudioID')
         assert.equal(resultBufferOne[5], originGameStudioInformation, 'Error: Missing or Invalid originGameStudioInformation')
@@ -205,6 +208,7 @@ contract('SupplyChain', function(accounts) {
         assert.equal(resultBufferOne[0], sku, 'Error: Invalid item SKU')
         assert.equal(resultBufferOne[1], upc, 'Error: Invalid item UPC')
         assert.equal(resultBufferOne[2], originSlotTitleID, 'Error: Missing or Invalid ownerID')
+        assert.notEqual(resultBufferOne[2], slotManufacturerID, 'Error: Missing or Invalid ownerID')
         assert.equal(resultBufferOne[3], originSlotTitleID, 'Error: Missing or Invalid originSlotTitleID')
         assert.equal(resultBufferOne[4], originGameStudioID, 'Error: Missing or Invalid originGameStudioID')
         assert.equal(resultBufferOne[5], originGameStudioInformation, 'Error: Missing or Invalid originGameStudioInformation')
@@ -238,6 +242,7 @@ contract('SupplyChain', function(accounts) {
         assert.equal(resultBufferOne[0], sku, 'Error: Invalid item SKU')
         assert.equal(resultBufferOne[1], upc, 'Error: Invalid item UPC')
         assert.equal(resultBufferOne[2], originSlotTitleID, 'Error: Missing or Invalid ownerID')
+        assert.notEqual(resultBufferOne[2], casinoID, 'Error: Missing or Invalid ownerID')
         assert.equal(resultBufferOne[3], originSlotTitleID, 'Error: Missing or Invalid originSlotTitleID')
         assert.equal(resultBufferOne[4], originGameStudioID, 'Error: Missing or Invalid originGameStudioID')
         assert.equal(resultBufferOne[5], originGameStudioInformation, 'Error: Missing or Invalid originGameStudioInformation')
@@ -272,6 +277,7 @@ contract('SupplyChain', function(accounts) {
         assert.equal(resultBufferOne[0], sku, 'Error: Invalid item SKU')
         assert.equal(resultBufferOne[1], upc, 'Error: Invalid item UPC')
         assert.equal(resultBufferOne[2], slotManufacturerID, 'Error: Missing or Invalid ownerID')
+        assert.notEqual(resultBufferOne[2], originSlotTitleID, 'Error: Missing or Invalid ownerID')
         assert.equal(resultBufferOne[3], originSlotTitleID, 'Error: Missing or Invalid originSlotTitleID')
         assert.equal(resultBufferOne[4], originGameStudioID, 'Error: Missing or Invalid originGameStudioID')
         assert.equal(resultBufferOne[5], originGameStudioInformation, 'Error: Missing or Invalid originGameStudioInformation')
@@ -305,6 +311,7 @@ contract('SupplyChain', function(accounts) {
         assert.equal(resultBufferOne[0], sku, 'Error: Invalid item SKU')
         assert.equal(resultBufferOne[1], upc, 'Error: Invalid item UPC')
         assert.equal(resultBufferOne[2], slotManufacturerID, 'Error: Missing or Invalid ownerID')
+        assert.notEqual(resultBufferOne[2], regulatoryID, 'Error: Missing or Invalid ownerID')
         assert.equal(resultBufferOne[3], originSlotTitleID, 'Error: Missing or Invalid originSlotTitleID')
         assert.equal(resultBufferOne[4], originGameStudioID, 'Error: Missing or Invalid originGameStudioID')
         assert.equal(resultBufferOne[5], originGameStudioInformation, 'Error: Missing or Invalid originGameStudioInformation')
@@ -338,6 +345,7 @@ contract('SupplyChain', function(accounts) {
         assert.equal(resultBufferOne[0], sku, 'Error: Invalid item SKU')
         assert.equal(resultBufferOne[1], upc, 'Error: Invalid item UPC')
         assert.equal(resultBufferOne[2], slotManufacturerID, 'Error: Missing or Invalid ownerID')
+        assert.notEqual(resultBufferOne[2], casinoID, 'Error: Missing or Invalid ownerID')
         assert.equal(resultBufferOne[3], originSlotTitleID, 'Error: Missing or Invalid originSlotTitleID')
         assert.equal(resultBufferOne[4], originGameStudioID, 'Error: Missing or Invalid originGameStudioID')
         assert.equal(resultBufferOne[5], originGameStudioInformation, 'Error: Missing or Invalid originGameStudioInformation')
@@ -371,6 +379,7 @@ contract('SupplyChain', function(accounts) {
         assert.equal(resultBufferOne[0], sku, 'Error: Invalid item SKU')
         assert.equal(resultBufferOne[1], upc, 'Error: Invalid item UPC')
         assert.equal(resultBufferOne[2], regulatoryID, 'Error: Missing or Invalid ownerID')
+        assert.notEqual(resultBufferOne[2], slotManufacturerID, 'Error: Missing or Invalid ownerID')
         assert.equal(resultBufferOne[3], originSlotTitleID, 'Error: Missing or Invalid originSlotTitleID')
         assert.equal(resultBufferOne[4], originGameStudioID, 'Error: Missing or Invalid originGameStudioID')
         assert.equal(resultBufferOne[5], originGameStudioInformation, 'Error: Missing or Invalid originGameStudioInformation')
@@ -404,6 +413,7 @@ contract('SupplyChain', function(accounts) {
         assert.equal(resultBufferOne[0], sku, 'Error: Invalid item SKU')
         assert.equal(resultBufferOne[1], upc, 'Error: Invalid item UPC')
         assert.equal(resultBufferOne[2], slotManufacturerID, 'Error: Missing or Invalid ownerID')
+        assert.notEqual(resultBufferOne[2], originGameStudioID, 'Error: Missing or Invalid ownerID')
         assert.equal(resultBufferOne[3], originSlotTitleID, 'Error: Missing or Invalid originSlotTitleID')
         assert.equal(resultBufferOne[4], originGameStudioID, 'Error: Missing or Invalid originGameStudioID')
         assert.equal(resultBufferOne[5], originGameStudioInformation, 'Error: Missing or Invalid originGameStudioInformation')
@@ -437,6 +447,7 @@ contract('SupplyChain', function(accounts) {
         assert.equal(resultBufferOne[0], sku, 'Error: Invalid item SKU')
         assert.equal(resultBufferOne[1], upc, 'Error: Invalid item UPC')
         assert.equal(resultBufferOne[2], slotManufacturerID, 'Error: Missing or Invalid ownerID')
+        assert.notEqual(resultBufferOne[2], casinoID, 'Error: Missing or Invalid ownerID')
         assert.equal(resultBufferOne[3], originSlotTitleID, 'Error: Missing or Invalid originSlotTitleID')
         assert.equal(resultBufferOne[4], originGameStudioID, 'Error: Missing or Invalid originGameStudioID')
         assert.equal(resultBufferOne[5], originGameStudioInformation, 'Error: Missing or Invalid originGameStudioInformation')
@@ -470,6 +481,7 @@ contract('SupplyChain', function(accounts) {
         assert.equal(resultBufferOne[0], sku, 'Error: Invalid item SKU')
         assert.equal(resultBufferOne[1], upc, 'Error: Invalid item UPC')
         assert.equal(resultBufferOne[2], slotManufacturerID, 'Error: Missing or Invalid ownerID')
+        assert.notEqual(resultBufferOne[2], regulatoryID, 'Error: Missing or Invalid ownerID')
         assert.equal(resultBufferOne[3], originSlotTitleID, 'Error: Missing or Invalid originSlotTitleID')
         assert.equal(resultBufferOne[4], originGameStudioID, 'Error: Missing or Invalid originGameStudioID')
         assert.equal(resultBufferOne[5], originGameStudioInformation, 'Error: Missing or Invalid originGameStudioInformation')
@@ -503,6 +515,7 @@ contract('SupplyChain', function(accounts) {
         assert.equal(resultBufferOne[0], sku, 'Error: Invalid item SKU')
         assert.equal(resultBufferOne[1], upc, 'Error: Invalid item UPC')
         assert.equal(resultBufferOne[2], slotManufacturerID, 'Error: Missing or Invalid ownerID')
+        assert.notEqual(resultBufferOne[2], originGameStudioID, 'Error: Missing or Invalid ownerID')
         assert.equal(resultBufferOne[3], originSlotTitleID, 'Error: Missing or Invalid originSlotTitleID')
         assert.equal(resultBufferOne[4], originGameStudioID, 'Error: Missing or Invalid originGameStudioID')
         assert.equal(resultBufferOne[5], originGameStudioInformation, 'Error: Missing or Invalid originGameStudioInformation')
@@ -537,6 +550,7 @@ contract('SupplyChain', function(accounts) {
         assert.equal(resultBufferOne[0], sku, 'Error: Invalid item SKU')
         assert.equal(resultBufferOne[1], upc, 'Error: Invalid item UPC')
         assert.equal(resultBufferOne[2], casinoID, 'Error: Missing or Invalid ownerID')
+        assert.notEqual(resultBufferOne[2], slotManufacturerID, 'Error: Missing or Invalid ownerID')
         assert.equal(resultBufferOne[3], originSlotTitleID, 'Error: Missing or Invalid originSlotTitleID')
         assert.equal(resultBufferOne[4], originGameStudioID, 'Error: Missing or Invalid originGameStudioID')
         assert.equal(resultBufferOne[5], originGameStudioInformation, 'Error: Missing or Invalid originGameStudioInformation')
@@ -570,6 +584,7 @@ contract('SupplyChain', function(accounts) {
         assert.equal(resultBufferOne[0], sku, 'Error: Invalid item SKU')
         assert.equal(resultBufferOne[1], upc, 'Error: Invalid item UPC')
         assert.equal(resultBufferOne[2], casinoID, 'Error: Missing or Invalid ownerID')
+        assert.notEqual(resultBufferOne[2], regulatoryID, 'Error: Missing or Invalid ownerID')
         assert.equal(resultBufferOne[3], originSlotTitleID, 'Error: Missing or Invalid originSlotTitleID')
         assert.equal(resultBufferOne[4], originGameStudioID, 'Error: Missing or Invalid originGameStudioID')
         assert.equal(resultBufferOne[5], originGameStudioInformation, 'Error: Missing or Invalid originGameStudioInformation')
